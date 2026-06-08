@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import *
 
 collum1= 40
 collum2=400
@@ -6,6 +7,23 @@ collum2=400
 
 
 app = tk.Tk()
+
+
+
+
+variable = tk.StringVar(app)
+variable.set("plus") # default value
+
+
+w = tk.OptionMenu(app, variable, "plus", "minus", "gange")
+w.pack()
+w.place(x=350, y=170)
+
+
+    
+
+
+
 
 app.geometry("1000x500") 
 
