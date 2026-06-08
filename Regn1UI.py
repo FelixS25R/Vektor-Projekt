@@ -11,11 +11,6 @@ app.geometry("1000x500")
 
 
 
-
-
-
-
-
 vektor1 = tk.Label(app, text="indtast vektor 1:", font=("Arial", 16))
 vektor1.pack(pady=20)
 vektor1.place(x=collum1, y=20)
