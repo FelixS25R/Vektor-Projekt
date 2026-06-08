@@ -7,7 +7,7 @@ collum2=400
 
 
 app = tk.Tk()
-
+app.geometry("1000x500") 
 
 
 
@@ -20,12 +20,7 @@ w.pack()
 w.place(x=350, y=170)
 
 
-    
 
-
-
-
-app.geometry("1000x500") 
 
 vektor1 = tk.Label(app, text="indtast vektor 1:", font=("Arial", 16))
 vektor1.pack(pady=20)
