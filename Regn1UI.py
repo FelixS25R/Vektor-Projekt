@@ -62,7 +62,7 @@ variable = tk.StringVar(app)
 variable.set("plus") # default value
 
 
-w = tk.OptionMenu(app, variable, "plus", "minus", "gange")
+w = tk.OptionMenu(app, variable, "plus", "minus", "scalar", "dot produkt", "længde", "vinkel mellem vektorer", "polær til kartesian", "kartesian til polær", "punkt til vektor", "enhedsvektor", "tværvektor", "vektor projektion")
 w.pack()
 w.place(x=350, y=170)
 
