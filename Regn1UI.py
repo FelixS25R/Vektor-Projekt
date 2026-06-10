@@ -72,15 +72,29 @@ funktioner = {
 v1=[x1, y1]
 v2=[x2, y2]
 
-def beregn(v1, v2):
-    v1 = [float(x1.get()), float(y1.get())]
-    v2 = [float(x2.get()), float(y2.get())]
+def beregn():
 
-    resultat = funktioner[variable.get()](v1, v2)
+    
+
+    valgt = variable.get()
+
+    if valgt in ["længde", "enhedsvektor", "tværvektor", "kartesian til polær"]:
+        v1 = [float(x1.get()), float(y1.get())]
+        resultat = funktioner[valgt](v1)
+
+    elif valgt == "scalar":
+        v1 = [float(x1.get()), float(y1.get())]
+        S = float(S.get())
+        resultat = funktioner[valgt](v1, S)
+
+    else:
+        v1 = [float(x1.get()), float(y1.get())]
+        v2 = [float(x2.get()), float(y2.get())]
+        resultat = funktioner[valgt](v1, v2)
+
     print(resultat)
 
-
-beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn(v1, v2))
+beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn())
 beregnKnap.place(x=350, y=200)
 
 
