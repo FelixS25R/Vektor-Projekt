@@ -84,8 +84,8 @@ def beregn():
 
     elif valgt == "scalar":
         v1 = [float(x1.get()), float(y1.get())]
-        S = float(S.get())
-        resultat = funktioner[valgt](v1, S)
+        Skalar = float(S.get())
+        resultat = funktioner[valgt](v1, Skalar)
 
     else:
         v1 = [float(x1.get()), float(y1.get())]
