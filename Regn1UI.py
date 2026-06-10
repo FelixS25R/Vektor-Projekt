@@ -16,8 +16,6 @@ vektor1 = tk.Label(app, text="indtast vektor 1:", font=("Arial", 16))
 vektor1.pack(pady=20)
 vektor1.place(x=collum1, y=20)
 
-
-
 x1 = tk.Entry(app, font=("Arial", 16))
 x1.pack(pady=10)
 x1.place(x=collum1, y=60)
@@ -26,15 +24,9 @@ y1 = tk.Entry(app, font=("Arial", 16))
 y1.pack(pady=10)
 y1.place(x=collum1, y=100)
 
-
-
-
 vektor2 = tk.Label(app, text="indtast vektor 2:", font=("Arial", 16))
 vektor2.pack(pady=20)
 vektor2.place(x=collum2, y=20)
-
-
-
 
 x2 = tk.Entry(app, font=("Arial", 16))
 x2.pack(pady=10)
@@ -45,18 +37,6 @@ y2.pack(pady=10)
 y2.place(x=collum2, y=100)
 
 
-
-
-
-
-
-v1=[x1, y1]
-v2=[x2, y2]
-
-
-
-beregn = tk.Button(app, text="beregn", font=("Arial", 16))
-beregn.place(x=350, y=200)
 
 
 variable = tk.StringVar(app)
@@ -80,13 +60,19 @@ funktioner = {
     "tværvektor": TværVektor2D,
     "vektor projektion": VektorProjektion2D
 }
-funktioner["plus"]()
-def beregn():
+
+
+
+def beregn(v1, v2):
     v1 = [float(x1.get()), float(y1.get())]
     v2 = [float(x2.get()), float(y2.get())]
 
     resultat = funktioner[variable.get()](v1, v2)
     print(resultat)
+
+
+beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn(v1, v2))
+beregnKnap.place(x=350, y=200)
 
 
 
