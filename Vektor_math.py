@@ -11,7 +11,7 @@ def DotProdukt2D(v1: list, v2: list):
 def LængdeVektor2D(v1: list):
     return math.sqrt(v1[0]**2+v1[1]**2)
 def VinkelMellem2Vektor2D(v1: list,v2:list):
-    return math.acos(DotProdukt2D(v1,v2)/(LængdeVektor2D(v1)*LængdeVektor2D(v2)))
+    return math.degrees(math.acos(DotProdukt2D(v1,v2)/(LængdeVektor2D(v1)*LængdeVektor2D(v2))))
 def PolærTilKartasian2D(Længde: float, Vinkel: float):
     return [Længde*math.cos(Vinkel), Længde*math.sin(Vinkel)]
 def KartasianTilPolær2D(v1: list):

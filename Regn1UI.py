@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import *
-import Vektor_math
+from Vektor_math import *
 
 collum1= 40
 collum2=400
@@ -70,17 +70,17 @@ w.place(x=350, y=170)
 funktioner = {
     "plus": VektorAddition2D,
     "minus": VektorSubtraktion2D,
-    "scalar": SkalarMultiplikation2D,
+    "scalar": VektorScalar2D,
     "dot produkt": DotProdukt2D,
-    "længde": Laengde2D,
-    "vinkel mellem vektorer": VinkelMellemVektorer2D,
+    "længde": LængdeVektor2D,
+    "vinkel mellem vektorer": VinkelMellem2Vektor2D,
     "polær til kartesian": PolærTilKartasian2D,
     "kartesian til polær": KartasianTilPolær2D,
     "enhedsvektor": Enhedsvektor2D,
     "tværvektor": TværVektor2D,
     "vektor projektion": VektorProjektion2D
 }
-
+funktioner["plus"]()
 def beregn():
     v1 = [float(x1.get()), float(y1.get())]
     v2 = [float(x2.get()), float(y2.get())]
