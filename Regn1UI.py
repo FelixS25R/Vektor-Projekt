@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import *
 from Vektor_math import *
+import Draw_vektor as Draw
+import matplotlib.pyplot as plt
+
 
 collum1= 40
 collum2=400
