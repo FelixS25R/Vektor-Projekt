@@ -1,35 +1,64 @@
 import matplotlib.pyplot as plt
 import Vektor_math as vk
+import tkinter as tk
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-def PltShow(Real: bool = True)->None:
+def close_program(root):
+    plt.close("all")
+    root.quit()        
+    root.destroy()   
+
+def PltShow2D(tk_Window, fig, Real: bool = True)->None:
     plt.grid()
     plt.autoscale(enable=Real,axis="both")
-    plt.show()
+    canvas = FigureCanvasTkAgg(fig, master=tk_Window)
+    canvas.draw()
+    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+    
 
+def PltShow3D(ax, fig, args, tk_Window)->None:
+        ax.set_xlabel("x")
+        ax.set_ylabel("y")
+        ax.set_zlabel("z")
 
+        xs = [v[0] for v in args]
+        ys = [v[1] for v in args]
+        zs = [v[2] for v in args]
 
-def PlotVektor(vektor_name: str, *args: list):
+        margin = 1
+
+        ax.set_xlim(min(0, min(xs)) - margin, max(0, max(xs)) + margin)
+        ax.set_ylim(min(0, min(ys)) - margin, max(0, max(ys)) + margin)
+        ax.set_zlim(min(0, min(zs)) - margin, max(0, max(zs)) + margin)
+
+        ax.set_box_aspect([
+        ax.get_xlim()[1] - ax.get_xlim()[0],
+        ax.get_ylim()[1] - ax.get_ylim()[0],
+        ax.get_zlim()[1] - ax.get_zlim()[0]
+        ])
+        canvas = FigureCanvasTkAgg(fig, master=tk_Window)
+        canvas.draw()
+        canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+        
+
+def PlotVektor(vektor_name: str, tk_Window: object, *args: list):
+    tk_Window.protocol("WM_DELETE_WINDOW", lambda: close_program(tk_Window)) #Nødvendigt for at lukke matplotlib i tkinter
     #Check vektor type for 2D or 3D
     if len(args[0]) == 2: #2D vektor
+            fig = plt.figure()
+            ax = fig.add_subplot(111)
+            ax.set_title(vektor_name)
             for vec in args: plt.arrow(0,0,*vec,length_includes_head=True)
-            PltShow()
+            PltShow2D(tk_Window, fig, True)
     
     elif len(args[0]) == 3: #3D vektor
             fig = plt.figure()
             ax = fig.add_subplot(111,projection="3d")
+            ax.set_title(vektor_name)
             for vec in args: ax.quiver(0,0,0,*vec)
-            ax.set_xlabel("x")
-            ax.set_ylabel("y")
-            ax.set_zlabel("z")
-            ax.autoscale(enable=True,axis="both")
-            
-            ax.set_xlim(min(args[0][0],args[1][0],args[2][0])-1,max(args[0][0],args[1][0],args[2][0])+1)
-            ax.set_ylim(min(args[0][1],args[1][1],args[2][1])-1,max(args[0][1],args[1][1],args[2][1])+1)
-            ax.set_zlim(min(args[0][2],args[1][2],args[2][2])-1,max(args[0][2],args[1][2],args[2][2])+1)
-            
-            plt.show()
+            PltShow3D(ax, fig, args, tk_Window)
     else:
           print("Too many variables for a vektor, only 2D and 3D supported")
-a = [0,2]
-b = [6,3]
-print(vk.VinkelMellem2Vektor2D(a,b))
+
+

@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from Vektor_math import *
-
+from TestDraw_vektor import PlotVektor
 collum1= 40
 collum2=400
 collum3=700
@@ -91,7 +91,6 @@ def beregn():
         v1 = [float(x1.get()), float(y1.get())]
         v2 = [float(x2.get()), float(y2.get())]
         resultat = funktioner[valgt](v1, v2)
-
     print(resultat)
 
 beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn())
