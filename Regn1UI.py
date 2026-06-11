@@ -1,10 +1,7 @@
 import tkinter as tk
 from tkinter import *
 from Vektor_math import *
-
-from TestDraw_vektor import PlotVektor
-
-import Draw_vektor as Draw
+from TestDraw_vektor import PlotVektor 
 import matplotlib.pyplot as plt
 
 
@@ -95,7 +92,7 @@ funktioner = {
 
 def beregn():
     valgt = variable.get()
-
+    global v1, v2
     if valgt in ["længde", "enhedsvektor", "tværvektor", "kartesian til polær"]:
         v1 = [float(x1.get()), float(y1.get())]
         resultat = funktioner[valgt](v1)
@@ -127,6 +124,7 @@ def beregn():
         resultat = funktioner[valgt](v1, v2)
     print(resultat)
     svar.config(text=f"Resultat: {resultat}")
+    PlotVektor(valgt, app, resultat,v1,v2)
 
 beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn())
 beregnKnap.place(x=svarrækkke, y=230)

@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import Vektor_math as vk
 import tkinter as tk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -14,7 +13,8 @@ def PltShow2D(tk_Window, fig, Real: bool = True)->None:
     plt.autoscale(enable=Real,axis="both")
     canvas = FigureCanvasTkAgg(fig, master=tk_Window)
     canvas.draw()
-    canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+    canvas.get_tk_widget().place(x=400, y=200)
+    
     
 
 def PltShow3D(ax, fig, args, tk_Window)->None:
@@ -39,7 +39,7 @@ def PltShow3D(ax, fig, args, tk_Window)->None:
         ])
         canvas = FigureCanvasTkAgg(fig, master=tk_Window)
         canvas.draw()
-        canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
+        canvas.get_tk_widget().place(x=400, y=200)
         
 
 def PlotVektor(vektor_name: str, tk_Window: object, *args: list):
