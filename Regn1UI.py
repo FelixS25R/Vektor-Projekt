@@ -60,7 +60,7 @@ def beregn():
     svar.config(text=f"Resultat: {resultat}")
 
 collum1= 40
-collum2=400
+collum2=350
 collum3=700
 collum4=1000
 
@@ -133,14 +133,38 @@ V.pack(pady=10)
 V.place(x=collum4, y=140)
 ############################
 #########Beregn og resultat################
-beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn())
-beregnKnap.place(x=svarrækkke, y=230)
+beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn(),bg="green", fg="white", padx=10, pady=5)
+beregnKnap.place(x=svarrækkke, y=250)
 
 svar = tk.Label(app, font=("Arial", 16))
 svar.pack(pady=20)
-svar.place(x=svarrækkke, y=280)
+svar.place(x=svarrækkke, y=310)
 ############################################
+############labels################################
+x1label = tk.Label(app, text="x:", font=("inconsolata", 16))
+x1label.pack(pady=10)  
+x1label.place(x=collum1-30, y=60)   
 
+y1label = tk.Label(app, text="y:", font=("inconsolata", 16))
+y1label.pack(pady=10)
+y1label.place(x=collum1-30, y=100)
+
+z1label = tk.Label(app, text="z:", font=("inconsolata", 16))
+z1label.pack(pady=10)
+z1label.place(x=collum1-30, y=140)
+
+x2label = tk.Label(app, text="x:", font=("inconsolata", 16))
+x2label.pack(pady=10)  
+x2label.place(x=collum2-30, y=60)
+
+y2label = tk.Label(app, text="y:", font=("inconsolata", 16))
+y2label.pack(pady=10)
+y2label.place(x=collum2-30, y=100)
+
+z2label = tk.Label(app, text="z:", font=("inconsolata", 16))
+z2label.pack(pady=10)
+z2label.place(x=collum2-30, y=140)
+############################################
 ###########dropdown menu################
 variable = tk.StringVar(app)
 variable.set("Select Operation") # default value
