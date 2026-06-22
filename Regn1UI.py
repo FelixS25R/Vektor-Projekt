@@ -7,39 +7,51 @@ import matplotlib.pyplot as plt
 def beregn():
     valgt = variable.get() #Henter valgt funktion fra dropdown menuen
     global v1, v2
-    if valgt in ["længde", "enhedsvektor", "tværvektor", "kartesian til polær"]:
+    if valgt in ["længde2D", "enhedsvektor2D", "tværvektor2D", "kartesian til polær2D"]:
         v1 = [float(x1.get()), float(y1.get())]
         resultat = funktioner[valgt](v1) #Kald på funktioner der kun kræver en vektor
-        if valgt in ["enhedsvektor", "tværvektor"]:
+        if valgt in ["enhedsvektor2D", "tværvektor2D",]:
             PlotVektor(valgt, app, resultat,v1)
-    elif valgt == "scalar":
+    elif valgt == "scalar2D":
         v1 = [float(x1.get()), float(y1.get())]
         Skalar = float(S.get())
         resultat = funktioner[valgt](v1, Skalar) #Dictinary kalder på funktion baseret på valgt funktion i dropdown menuen, og giver de nødvendige argumenter
         PlotVektor(valgt, app, resultat,v1)
+    elif valgt in ["dot produkt2D", "vinkel mellem vektorer2D"]:
+        v1 = [float(x1.get()), float(y1.get())]
+        v2 = [float(x2.get()), float(y2.get())]
+        resultat = funktioner[valgt](v1, v2)
 
-    elif valgt in ["polær til kartesian"]:
+    elif valgt in ["polær til kartesian2D"]:
         Længde = float(S.get())
         Vinkel = float(S.get())
         resultat = funktioner[valgt](Længde, Vinkel)
         PlotVektor(valgt, app, resultat,v1,v2)
 
-    elif valgt in ["plus3d", "minus3d", "scalar3d", "dot produkt3d", "længde3d", "vinkel mellem vektorer3d", "vektor produkt3d", "vektor projektion3d"]:
+    elif valgt in ["plus3d", "minus3d", "scalar3d", "dot produkt3d", "længde3d", "vinkel mellem vektorer3d", "vektor produkt3d", "vektor projektion3d"]: #Funktioner der kræver 3D vektorer
         if valgt == "scalar3d":
             v1 = [float(x1.get()), float(y1.get()), float(z1.get())]
             Skalar = float(S.get())
             resultat = funktioner[valgt](v1, Skalar)
             PlotVektor(valgt, app, resultat,v1)
+        elif valgt == "længde3d":
+            v1 = [float(x1.get()), float(y1.get()), float(z1.get())]
+            resultat = funktioner[valgt](v1)
+        elif valgt in ["vinkel mellem vektorer3d","dot produkt3d"]:
+            v1 = [float(x1.get()), float(y1.get()), float(z1.get())]
+            v2 = [float(x2.get()), float(y2.get()), float(z2.get())]
+            resultat = funktioner[valgt](v1, v2)
         else:
             v1 = [float(x1.get()), float(y1.get()), float(z1.get())]
             v2 = [float(x2.get()), float(y2.get()), float(z2.get())]
             resultat = funktioner[valgt](v1, v2)
             PlotVektor(valgt, app, resultat,v1,v2)
+    
     elif valgt in ["enhedsvektor3d"]:
         v1 = [float(x1.get()), float(y1.get()), float(z1.get())]
         resultat = funktioner[valgt](v1)
         PlotVektor(valgt, app, resultat,v1)
-    else:
+    else: #Funktioner der kræver 2 vektorer, 
         v1 = [float(x1.get()), float(y1.get())]
         v2 = [float(x2.get()), float(y2.get())]
         resultat = funktioner[valgt](v1, v2)
@@ -115,22 +127,22 @@ svar.place(x=svarrækkke, y=280)
 variable = tk.StringVar(app)
 variable.set("plus") # default value
 
-w = tk.OptionMenu(app, variable, "plus", "minus", "scalar", "dot produkt", "længde", "vinkel mellem vektorer", "polær til kartesian", "kartesian til polær", "enhedsvektor", "tværvektor", "vektor projektion","plus3d", "minus3d", "scalar3d", "dot produkt3d", "længde3d", "vinkel mellem vektorer3d", "vektor produkt3d", "vektor projektion3d", "enhedsvektor3d")
+w = tk.OptionMenu(app, variable, "plus2D", "minus2D", "scalar2D", "dot produkt2D", "længde2D", "vinkel mellem vektorer2D", "polær til kartesian2D", "kartesian til polær2D", "enhedsvektor2D", "tværvektor2D", "vektor projektion2D","plus3d", "minus3d", "scalar3d", "dot produkt3d", "længde3d", "vinkel mellem vektorer3d", "vektor produkt3d", "vektor projektion3d", "enhedsvektor3d")
 w.pack()
 w.place(x=svarrækkke, y=200)
 
 funktioner = {
-    "plus": VektorAddition2D,
-    "minus": VektorSubtraktion2D,
-    "scalar": VektorScalar2D,
-    "dot produkt": DotProdukt2D,
-    "længde": LængdeVektor2D,
-    "vinkel mellem vektorer": VinkelMellem2Vektor2D,
-    "polær til kartesian": PolærTilKartasian2D,
-    "kartesian til polær": KartasianTilPolær2D,
-    "enhedsvektor": Enhedsvektor2D,
-    "tværvektor": TværVektor2D,
-    "vektor projektion": VektorProjektion2D,
+    "plus2D": VektorAddition2D,
+    "minus2D": VektorSubtraktion2D,
+    "scalar2D": VektorScalar2D,
+    "dot produkt2D": DotProdukt2D,
+    "længde2D": LængdeVektor2D,
+    "vinkel mellem vektorer2D": VinkelMellem2Vektor2D,
+    "polær til kartesian2D": PolærTilKartasian2D,
+    "kartesian til polær2D": KartasianTilPolær2D,
+    "enhedsvektor2D": Enhedsvektor2D,
+    "tværvektor2D": TværVektor2D,
+    "vektor projektion2D": VektorProjektion2D,
     "plus3d": Vektor3DAddition,
     "minus3d": Vektor3DSubtraktion,
     "scalar3d": Vektor3DScalar,
