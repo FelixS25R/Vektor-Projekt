@@ -132,9 +132,28 @@ V = tk.Entry(app, font=("inconsolata", 16))
 V.pack(pady=10)
 V.place(x=collum4, y=140)
 ############################
-#########Beregn og resultat################
+##########clear input def##################
+def clear():
+    x1.delete(0, tk.END)
+    y1.delete(0, tk.END)
+    z1.delete(0, tk.END)
+    x2.delete(0, tk.END)
+    y2.delete(0, tk.END)
+    z2.delete(0, tk.END)
+    S.delete(0, tk.END)
+    L.delete(0, tk.END)
+    V.delete(0, tk.END)
+    svar.place_forget()
+    for widget in app.winfo_children():
+        if isinstance(widget, tk.Canvas):
+            widget.destroy()
+############################
+#########Beregn, resultat og clear################
 beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn(),bg="green", fg="white", padx=10, pady=5)
 beregnKnap.place(x=svarrækkke, y=250)
+
+clearKnap = tk.Button(app, text="clear", font=("Arial", 16), command=lambda: clear(),bg="red", fg="white", padx=10, pady=5)
+clearKnap.place(x=svarrækkke+120, y=250)
 
 svar = tk.Label(app, font=("Arial", 16))
 svar.pack(pady=20)
