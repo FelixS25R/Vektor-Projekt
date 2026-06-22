@@ -71,6 +71,7 @@ app = tk.Tk()
 app.geometry("1300x700") 
 
 app.configure(bg="grey")
+############################################
 ############Vektor 1 input################
 vektor1 = tk.Label(app, text="indtast vektor 1:", font=("inconsolata", 16))
 vektor1.pack(pady=20)
@@ -132,7 +133,7 @@ V = tk.Entry(app, font=("inconsolata", 16))
 V.pack(pady=10)
 V.place(x=collum4, y=140)
 ############################
-##########clear input def##################
+##########clear input funktion##################
 def clear():
     x1.delete(0, tk.END)
     y1.delete(0, tk.END)
@@ -214,5 +215,4 @@ funktioner = {
     "vektor projektion3d": VektorProjektion3D,
     "enhedsvektor3d": EnhedsVektor3D
 }
-
 app.mainloop()
