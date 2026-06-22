@@ -125,7 +125,7 @@ svar.place(x=svarrækkke, y=280)
 
 ###########dropdown menu################
 variable = tk.StringVar(app)
-variable.set("plus") # default value
+variable.set("Select Operation") # default value
 
 w = tk.OptionMenu(app, variable, "plus2D", "minus2D", "scalar2D", "dot produkt2D", "længde2D", "vinkel mellem vektorer2D", "polær til kartesian2D", "kartesian til polær2D", "enhedsvektor2D", "tværvektor2D", "vektor projektion2D","plus3d", "minus3d", "scalar3d", "dot produkt3d", "længde3d", "vinkel mellem vektorer3d", "vektor produkt3d", "vektor projektion3d", "enhedsvektor3d")
 w.pack()
