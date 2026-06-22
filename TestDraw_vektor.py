@@ -49,7 +49,7 @@ def PlotVektor(vektor_name: str, tk_Window: object, *args: list):
             fig = plt.figure()
             ax = fig.add_subplot(111)
             ax.set_title(vektor_name)
-            for vec in args: plt.arrow(0,0,*vec,length_includes_head=True)
+            for vec in args: plt.arrow(0,0,*vec,length_includes_head=True,head_width=0.3, head_length=0.3)
             PltShow2D(tk_Window, fig, True)
     
     elif len(args[0]) == 3: #3D vektor
@@ -60,5 +60,3 @@ def PlotVektor(vektor_name: str, tk_Window: object, *args: list):
             PltShow3D(ax, fig, args, tk_Window)
     else:
           print("Too many variables for a vektor, only 2D and 3D supported")
-
-

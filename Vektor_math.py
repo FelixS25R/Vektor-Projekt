@@ -38,7 +38,7 @@ def VektorDotProdukt3D(v1: list, v2: list):
 def LængdeVektor3D(v1: list):
     return math.sqrt(v1[0]**2+v1[1]**2+v1[2]**2)
 def VinkelMellem2Vektor3D(v1: list,v2:list):
-    return math.acos(VektorDotProdukt3D(v1,v2)/(LængdeVektor3D(v1)*LængdeVektor3D(v2)))
+    return math.degrees(math.acos(VektorDotProdukt3D(v1,v2)/(LængdeVektor3D(v1)*LængdeVektor3D(v2))))
 def VektorProdukt3D(v1:list,v2:list):
     return [(v1[1]*v2[2]-v1[2]*v2[1]), (v1[2]*v2[0]-v1[0]*v2[2]), (v1[0]*v2[1]-v1[1]*v2[0])]
 def VektorProjektion3D(v1,v2):
