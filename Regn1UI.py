@@ -23,10 +23,10 @@ def beregn():
         resultat = funktioner[valgt](v1, v2)
 
     elif valgt in ["polær til kartesian2D"]:
-        Længde = float(S.get())
-        Vinkel = float(S.get())
+        Længde = float(L.get())
+        Vinkel = float(V.get())
         resultat = funktioner[valgt](Længde, Vinkel)
-        PlotVektor(valgt, app, resultat,v1,v2)
+       # PlotVektor(valgt, app, resultat,v1,v2)
 
     elif valgt in ["plus3d", "minus3d", "scalar3d", "dot produkt3d", "længde3d", "vinkel mellem vektorer3d", "vektor produkt3d", "vektor projektion3d"]: #Funktioner der kræver 3D vektorer
         if valgt == "scalar3d":
@@ -62,12 +62,13 @@ def beregn():
 collum1= 40
 collum2=400
 collum3=700
+collum4=1000
 
 svarrækkke = 40
 
 
 app = tk.Tk()
-app.geometry("1200x700") 
+app.geometry("1300x700") 
 
 app.configure(bg="grey")
 ############Vektor 1 input################
@@ -113,7 +114,24 @@ S = tk.Entry(app, font=("inconsolata", 16))
 S.pack(pady=10)
 S.place(x=collum3, y=60)
 ############################
+#############længde input################
+Længdeinput = tk.Label(app, text="indtast længde:", font=("inconsolata   ", 16))
+Længdeinput.pack(pady=20)
+Længdeinput.place(x=collum4, y=20)
 
+L = tk.Entry(app, font=("inconsolata", 16))
+L.pack(pady=10)
+L.place(x=collum4, y=60)
+############################
+#############vinkel input################
+Vinkelinput = tk.Label(app, text="indtast vinkel:", font=("inconsolata   ", 16))
+Vinkelinput.pack(pady=20)
+Vinkelinput.place(x=collum4, y=100)
+
+V = tk.Entry(app, font=("inconsolata", 16))
+V.pack(pady=10)
+V.place(x=collum4, y=140)
+############################
 #########Beregn og resultat################
 beregnKnap = tk.Button(app, text="beregn", font=("Arial", 16), command=lambda: beregn())
 beregnKnap.place(x=svarrækkke, y=230)
